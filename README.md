@@ -201,7 +201,19 @@ npm test           # Jest tests
 
 ---
 
-## Screenshots
+## 📹 Demo Video
+
+Watch a complete walkthrough of the app showcasing all features:
+
+<p align="center">
+  <a href="https://drive.google.com/file/d/1vzJVpRQL35eFrBFKv1E8etoNb1iKqT2v/view?usp=sharing" target="_blank">
+    <img src="https://img.shields.io/badge/▶%20Watch%20Demo-Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white" alt="CityPulse Demo Video" />
+  </a>
+</p>
+
+---
+
+## 📱 Screenshots
 
 <p align="center">
   <img src="screenshots/1.png" width="200" />
@@ -227,18 +239,6 @@ npm test           # Jest tests
 <p align="center">
   <img src="screenshots/13.png" width="200" />
   <img src="screenshots/14.png" width="200" />
-</p>
-
----
-
-## Demo
-
-Watch a short walkthrough of the app in action:
-
-<p align="center">
-  <a href="https://drive.google.com/file/d/1vzJVpRQL35eFrBFKv1E8etoNb1iKqT2v/view?usp=sharing" target="_blank">
-    <img src="https://img.shields.io/badge/▶%20Watch%20Demo-Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white" alt="CityPulse Demo Video" />
-  </a>
 </p>
 
 ---
