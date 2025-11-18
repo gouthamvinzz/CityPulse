@@ -1,97 +1,159 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## CityPulse – Local Events Explorer
 
-# Getting Started
+CityPulse is a React Native application that helps residents browse events in their city, mark their favourites, and manage their profile with language + biometric preferences. The stack uses TypeScript, Atomic Design, Redux Toolkit with persist, Firebase Auth/Firestore, i18next, and React Navigation (stack + tabs + modal).
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+### Key features
+- Firebase email/password sign-up & sign-in, plus Firestore user profile storage
+- Dashboard with Firestore-backed queries, grouped per city and searchable by city or event title
+- Event detail modal with map preview and favourite toggle stored strictly in Redux Persist
+- Profile screen with language toggle (English ↔ Arabic) that flips RTL/LTR, logout, and biometric helper
+- Bonus: Biometric helper built on `react-native-biometrics`
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Folder structure
 
-To start the Metro dev server, run the following command from the root of your React Native project:
-
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+```
+src/
+  atoms/               # Reusable primitives (Button, Input, Card, Text)
+  molecules/           # Composed widgets (SearchBar, EventCard, ProfileInfo)
+  organisms/           # Domain-specific assemblies (CityEventList, ProfileSettings)
+  navigation/          # Root stack + tabs + type definitions
+  screens/             # Auth, Dashboard, EventDetails, Profile, Splash
+  redux/
+    slices/            # auth, favorites, language, events
+    store.ts           # Redux Toolkit + redux-persist setup
+  hooks/               # useAuth, useEvents, useFavorites, useLanguage, useBiometrics
+  services/
+    firebase/          # Auth + Firestore helpers & config
+    api/               # Firestore event queries
+  utils/               # formatters, grouping helpers, RTL utilities
+  i18n/                # i18next bootstrap + translations (en/ar)
+  assets/              # Static translations + placeholder images
+screenshots/           # Drop UI captures here (empty placeholder committed)
 ```
 
-## Step 2: Build and run your app
+This mirrors Atomic Design (atoms → molecules → organisms → screens) and keeps business logic in hooks/services.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+---
 
-### Android
+## Requirements & assumptions
 
-```sh
-# Using npm
-npm run android
+- Node.js ≥ 20 is recommended (React Native 0.82 requires it). Tooling may warn if you run on Node 18.
+- `events` and `users` collections already exist in Firestore with the schema described below.
+- Firestore composite indexes are set up for city equality and title range queries.
+- `google-services.json` (Android) and `GoogleService-Info.plist` (iOS) are provided by your Firebase project.
+- Device simulators have Maps SDK configured (iOS requires CocoaPods linking).
 
-# OR using Yarn
-yarn android
+---
+
+## Setup steps
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+2. **iOS pods**
+   ```bash
+   cd ios && pod install && cd ..
+   ```
+3. **Firebase config**
+   - Android: place `android/app/google-services.json`.
+   - iOS: place `ios/CityPulse/GoogleService-Info.plist` (placeholder already exists—replace with your file).
+   - Enable Email/Password auth in Firebase Console.
+   - Create Firestore collections:  
+     ```
+     /users/{uid} -> { uid, name, email, phone }
+     /events/{id} -> { title, city, date, venue, lat, lng, description, category }
+     ```
+   - Optional sample `events` document:
+     ```json
+     {
+       "title": "Tech Meetup",
+       "city": "Chennai",
+       "date": "2025-02-20T18:30:00.000Z",
+       "venue": "SP Infocity",
+       "lat": 13.0827,
+       "lng": 80.2707,
+       "description": "Monthly community meetup",
+       "category": "Technology"
+     }
+     ```
+4. **Firestore indexes**  
+   - Single-field: `city` (ascending)  
+   - Composite: `{ field: title (asc) }` for prefix search (needed for `startAt`/`endAt` queries).
+
+---
+
+## Running the app
+
+```bash
+npm start          # start Metro
+npm run android    # build & install on Android emulator/device
+npm run ios        # build & install on iOS simulator/device
+
+npm run lint       # ESLint + Prettier checks
+npm run typecheck  # Strict TypeScript (noEmit)
+npm test           # Jest + React Native Testing Library
 ```
 
-### iOS
+Node 20+ is required by the official RN toolchain—upgrade if Metro warns about engines.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+---
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+## Feature highlights
+- **Navigation:** Root stack (`Splash`, `AuthStack`, `MainTabs`, `EventDetails` modal) plus bottom tabs (Dashboard/Profile).
+- **State:** Redux Toolkit slices with redux-persist (AsyncStorage) for `auth`, `favorites`, `language`. `events` slice stays volatile.
+- **i18n & RTL:** i18next + react-i18next + react-native-localize with English & Arabic translations. Switching to Arabic automatically flips RTL via `I18nManager`.
+- **Hooks:** `useAuth`, `useEvents`, `useFavorites`, `useLanguage`, `useBiometrics` isolate business logic from UI.
+- **Firebase:** Authentication + Firestore queries (city/name search) with helper services.
+- **Maps:** `react-native-maps` preview centered on event coordinates with a single marker.
+- **Biometrics:** Helper built on `react-native-biometrics` (bonus requirement).
+- **Tests:** Sample component test for `EventCard` using `@testing-library/react-native`.
 
-```sh
-bundle install
-```
+---
 
-Then, and every time you update your native dependencies, run:
+## Screenshots
 
-```sh
-bundle exec pod install
-```
+Add UI captures to the `screenshots/` directory (currently contains a `.gitkeep` placeholder so the folder stays in git).
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+---
 
-```sh
-# Using npm
-npm run ios
+## Demo
 
-# OR using Yarn
-yarn ios
-```
+You can watch a short walkthrough of CityPulse here. The embedded player works on GitHub; if it doesn’t autoplay, click the title to open it in Google Drive.
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+<p align="center">
+  <a href="https://drive.google.com/file/d/1WthNci_rulbSrCC6_vicBe9Eo-OywFQ5/view?usp=sharing" target="_blank">
+    <img src="https://img.shields.io/badge/Watch%20Demo-Click%20to%20Play-blue?style=for-the-badge" alt="CityPulse Demo" />
+  </a>
+</p>
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+<p align="center">
+  <iframe
+    src="https://drive.google.com/file/d/1WthNci_rulbSrCC6_vicBe9Eo-OywFQ5/preview"
+    width="640"
+    height="360"
+    allow="autoplay"
+    style="max-width: 100%; border: none;"
+  ></iframe>
+</p>
 
-## Step 3: Modify your app
+---
 
-Now that you have successfully run the app, let's make changes!
+## Bonus features implemented
+- Biometric helper (`useBiometrics`) with UI affordance on the Sign In + Profile screens.
+- Strict TypeScript configuration (`strict`, `noUncheckedIndexedAccess`, `noImplicitOverride`).
+- ESLint + Prettier integration with project scripts.
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+---
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## Notes & troubleshooting
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+- `@react-native-firebase/*` requires native builds. After installing dependencies, always run `pod install` for iOS.
+- `react-native-maps` needs Google Maps SDK keys if you want production traffic; the default Apple/Google keys suffice for simulator testing.
+- When switching to Arabic, the layout direction flips. Reload the app if you notice stale layouts after toggling language.
+- Favourite events are intentionally stored **only** in Redux Persist (no Firestore sync) to honor the requirement.
+- Metro bundler or gradle may warn about Node 18. Upgrade Node to 20+ for best compatibility.
 
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Happy hacking! 🎉

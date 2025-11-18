@@ -1,0 +1,50 @@
+{
+  "common": {
+    "search_placeholder": "Search by city or event",
+    "favorites": "Favourites",
+    "add_to_favorites": "Add to favourites",
+    "remove_from_favorites": "Remove from favourites",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "event_details": "Event details",
+    "loading": "Loading...",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "arabic": "Arabic",
+    "english": "English"
+  },
+  "auth": {
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up",
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "password": "Password",
+    "no_account": "No account?",
+    "have_account": "Already have an account?",
+    "use_biometrics": "Use biometrics",
+    "continue": "Continue",
+    "biometric_prompt": "Authenticate to continue"
+  },
+  "dashboard": {
+    "title": "Local Events",
+    "empty_state": "No events found for the current search.",
+    "search_city": "Search city",
+    "upcoming_events": "Upcoming events"
+  },
+  "events": {
+    "date": "Date",
+    "venue": "Venue",
+    "category": "Category",
+    "description": "Description"
+  },
+  "profile": {
+    "title": "Profile",
+    "logout": "Logout",
+    "language_toggle": "Language",
+    "biometrics": "Biometric login",
+    "toggle_language": "Toggle language",
+    "enable_biometrics": "Enable biometrics"
+  }
+}
+

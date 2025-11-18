@@ -1,0 +1,50 @@
+{
+  "common": {
+    "search_placeholder": "ابحث حسب المدينة أو الحدث",
+    "favorites": "المفضلة",
+    "add_to_favorites": "أضف إلى المفضلة",
+    "remove_from_favorites": "إزالة من المفضلة",
+    "dashboard": "الرئيسية",
+    "profile": "الملف الشخصي",
+    "event_details": "تفاصيل الحدث",
+    "loading": "جارٍ التحميل...",
+    "retry": "إعادة المحاولة",
+    "cancel": "إلغاء",
+    "arabic": "العربية",
+    "english": "الإنجليزية"
+  },
+  "auth": {
+    "sign_in": "تسجيل الدخول",
+    "sign_up": "إنشاء حساب",
+    "name": "الاسم",
+    "phone": "رقم الهاتف",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "no_account": "لا تملك حساباً؟",
+    "have_account": "لديك حساب بالفعل؟",
+    "use_biometrics": "استخدم البصمة",
+    "continue": "متابعة",
+    "biometric_prompt": "يرجى التحقق للمتابعة"
+  },
+  "dashboard": {
+    "title": "فعاليات محلية",
+    "empty_state": "لا توجد فعاليات مطابقة لبحثك.",
+    "search_city": "ابحث عن مدينة",
+    "upcoming_events": "الفعاليات القادمة"
+  },
+  "events": {
+    "date": "التاريخ",
+    "venue": "الموقع",
+    "category": "التصنيف",
+    "description": "الوصف"
+  },
+  "profile": {
+    "title": "الملف الشخصي",
+    "logout": "تسجيل الخروج",
+    "language_toggle": "اللغة",
+    "biometrics": "تسجيل الدخول بالبصمة",
+    "toggle_language": "تغيير اللغة",
+    "enable_biometrics": "تفعيل البصمة"
+  }
+}
+

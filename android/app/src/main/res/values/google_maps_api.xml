@@ -1,0 +1,6 @@
+<resources>
+  <!-- Google Maps API key (development). Restrict this key in Google Cloud Console before using in production. -->
+  <string name="google_maps_api_key">AIzaSyBl15A3HxhjvGlH7o5UDocQrshrBTaBFi0</string>
+</resources>
+
+
