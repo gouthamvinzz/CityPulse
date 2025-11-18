@@ -4,9 +4,51 @@
 
 A production-ready React Native application demonstrating enterprise-level architecture, Firebase integration, and advanced features including RTL support, biometric authentication, and real-time map previews.
 
-### ✅ Assignment Requirements Met
+## 📹 Demo Video
 
-#### Core Features
+Watch a complete walkthrough of the app showcasing all features:
+
+<p align="center">
+  <a href="https://drive.google.com/file/d/1vzJVpRQL35eFrBFKv1E8etoNb1iKqT2v/view?usp=sharing" target="_blank">
+    <img src="https://img.shields.io/badge/▶%20Watch%20Demo-Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white" alt="CityPulse Demo Video" />
+  </a>
+</p>
+
+---
+
+## 📱 Screenshots
+
+<p align="center">
+  <img src="screenshots/1.png" width="200" />
+  <img src="screenshots/2.png" width="200" />
+  <img src="screenshots/3.png" width="200" />
+  <img src="screenshots/4.png" width="200" />
+</p>
+
+<p align="center">
+  <img src="screenshots/5.png" width="200" />
+  <img src="screenshots/6.png" width="200" />
+  <img src="screenshots/7.png" width="200" />
+  <img src="screenshots/8.png" width="200" />
+</p>
+
+<p align="center">
+  <img src="screenshots/9.png" width="200" />
+  <img src="screenshots/10.png" width="200" />
+  <img src="screenshots/11.png" width="200" />
+  <img src="screenshots/12.png" width="200" />
+</p>
+
+<p align="center">
+  <img src="screenshots/13.png" width="200" />
+  <img src="screenshots/14.png" width="200" />
+</p>
+
+---
+
+## ✅ Assignment Requirements Met
+
+### Core Features
 - ✅ **Home Screen with Search**: Dashboard with real-time search by keyword and city, powered by Firestore queries
 - ✅ **Event Detail Screen**: Full event details with Google Maps integration showing venue location
 - ✅ **Favourite Events**: Mark/unmark favourites with persistent local storage via AsyncStorage
@@ -14,7 +56,7 @@ A production-ready React Native application demonstrating enterprise-level archi
 - ✅ **Navigation Flow**: Splash → Auth (Sign In/Sign Up) → Main Tabs (Dashboard/Profile) → Event Details
 - ✅ **User Profile**: Display & manage user info with language preferences and logout
 
-#### Bonus Features Implemented
+### Bonus Features Implemented
 - 🔥 **Firebase Integration**: Full Firebase Auth (email/password) + Firestore for users and events
 - 🗺️ **Map Preview**: `react-native-maps` with markers in event detail screen
 - 🔐 **Biometric Login**: Face ID/Touch ID/Fingerprint authentication using `react-native-biometrics`
@@ -198,48 +240,6 @@ npm test           # Jest tests
 - **Auth State**: User session persisted locally
 - **Language Preference**: Remembered across launches
 - **Events**: Fresh fetch on app open (volatile, no offline cache per requirement)
-
----
-
-## 📹 Demo Video
-
-Watch a complete walkthrough of the app showcasing all features:
-
-<p align="center">
-  <a href="https://drive.google.com/file/d/1vzJVpRQL35eFrBFKv1E8etoNb1iKqT2v/view?usp=sharing" target="_blank">
-    <img src="https://img.shields.io/badge/▶%20Watch%20Demo-Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white" alt="CityPulse Demo Video" />
-  </a>
-</p>
-
----
-
-## 📱 Screenshots
-
-<p align="center">
-  <img src="screenshots/1.png" width="200" />
-  <img src="screenshots/2.png" width="200" />
-  <img src="screenshots/3.png" width="200" />
-  <img src="screenshots/4.png" width="200" />
-</p>
-
-<p align="center">
-  <img src="screenshots/5.png" width="200" />
-  <img src="screenshots/6.png" width="200" />
-  <img src="screenshots/7.png" width="200" />
-  <img src="screenshots/8.png" width="200" />
-</p>
-
-<p align="center">
-  <img src="screenshots/9.png" width="200" />
-  <img src="screenshots/10.png" width="200" />
-  <img src="screenshots/11.png" width="200" />
-  <img src="screenshots/12.png" width="200" />
-</p>
-
-<p align="center">
-  <img src="screenshots/13.png" width="200" />
-  <img src="screenshots/14.png" width="200" />
-</p>
 
 ---
 
