@@ -115,7 +115,31 @@ Node 20+ is required by the official RN toolchain—upgrade if Metro warns about
 
 ## Screenshots
 
-Add UI captures to the `screenshots/` directory (currently contains a `.gitkeep` placeholder so the folder stays in git).
+<p align="center">
+  <img src="screenshots/Screenshot 2025-11-18 at 12.25.02 pm.png" width="200" />
+  <img src="screenshots/Screenshot 2025-11-18 at 12.25.17 pm.png" width="200" />
+  <img src="screenshots/Screenshot 2025-11-18 at 12.32.32 pm.png" width="200" />
+  <img src="screenshots/Screenshot 2025-11-18 at 12.32.43 pm.png" width="200" />
+</p>
+
+<p align="center">
+  <img src="screenshots/Screenshot 2025-11-18 at 12.33.13 pm.png" width="200" />
+  <img src="screenshots/Screenshot 2025-11-18 at 12.33.30 pm.png" width="200" />
+  <img src="screenshots/Screenshot 2025-11-18 at 12.33.53 pm.png" width="200" />
+  <img src="screenshots/Screenshot 2025-11-18 at 12.34.09 pm.png" width="200" />
+</p>
+
+<p align="center">
+  <img src="screenshots/Screenshot 2025-11-18 at 12.34.25 pm.png" width="200" />
+  <img src="screenshots/Screenshot 2025-11-18 at 12.34.55 pm.png" width="200" />
+  <img src="screenshots/Screenshot 2025-11-18 at 12.35.20 pm.png" width="200" />
+  <img src="screenshots/Screenshot 2025-11-18 at 12.35.34 pm.png" width="200" />
+</p>
+
+<p align="center">
+  <img src="screenshots/Screenshot 2025-11-18 at 12.35.47 pm.png" width="200" />
+  <img src="screenshots/Screenshot_1763448888.png" width="200" />
+</p>
 
 ---
 
@@ -124,7 +148,7 @@ Add UI captures to the `screenshots/` directory (currently contains a `.gitkeep`
 You can watch a short walkthrough of CityPulse here. The embedded player works on GitHub; if it doesn’t autoplay, click the title to open it in Google Drive.
 
 <p align="center">
-  <a href="https://drive.google.com/file/d/1WthNci_rulbSrCC6_vicBe9Eo-OywFQ5/view?usp=sharing" target="_blank">
+  <a href="https://drive.google.com/file/d/1vzJVpRQL35eFrBFKv1E8etoNb1iKqT2v/view?usp=sharing" target="_blank">
     <img src="https://img.shields.io/badge/Watch%20Demo-Click%20to%20Play-blue?style=for-the-badge" alt="CityPulse Demo" />
   </a>
 </p>
